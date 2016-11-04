@@ -1,0 +1,53 @@
+.app {
+  margin: 20px;
+}
+.clicker {
+  width: 30%;
+  display: inline-block;
+}
+.clicker button {
+    font-size: 45px;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: lightgreen;
+    width: 100%;
+    border-width: 3px; 
+}
+.clicker button:focus {
+    outline: 0;
+}
+.clicker button:disabled {
+    background-color: palegoldenrod;
+}
+.clicker button:active {
+  background-color: greenyellow;
+  font-size: 48px;
+}
+.top .info {
+  float: right;
+  width: 68%;
+  padding: 2px 5px;
+  font-size: 15px;
+  font-family: monospace;
+}
+.top .info h2 {
+  margin: 0 0 3px 0; 
+}
+.resources div {
+  font-family: monospace;
+  font-size: 15px;
+  margin: 20px 5px 0 0;
+  padding: 5px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  display: inline-block;
+}
+.marketplace {
+  margin-top: 20px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 5px;
+}
+.marketplace h3 {
+  margin: 2px 0 10px;
+}
