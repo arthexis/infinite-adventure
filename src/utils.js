@@ -1,19 +1,21 @@
 
+
+var nominals = [
+    'million', 'billion', 'trillion', 'quadrillion', 'quintillion',
+    'sextillion', 'septillion', 'octillion', 'nonillion', 'decillion' 
+]
+
 export function formatNum(num) {
-  if (num >= 1000000000000000000000000000000000000000) { return Math.round(num / 1000000000000000000000000000000000000) / 1000 + " Du"; }
-  if (num >= 1000000000000000000000000000000000000) { return Math.round(num / 1000000000000000000000000000000000) / 1000 + " Un"; }
-  if (num >= 1000000000000000000000000000000000) { return Math.round(num / 1000000000000000000000000000000) / 1000 + " De"; }
-  if (num >= 1000000000000000000000000000000) { return Math.round(num / 1000000000000000000000000000) / 1000 + " No"; }
-  if (num >= 1000000000000000000000000000) { return Math.round(num / 1000000000000000000000000) / 1000 + " Oc"; }
-  if (num >= 1000000000000000000000000) { return Math.round(num / 1000000000000000000000) / 1000 + " Sp"; }
-  if (num >= 1000000000000000000000) { return Math.round(num / 1000000000000000000) / 1000 + " Sx"; }
-  if (num >= 1000000000000000000) { return Math.round(num / 1000000000000000) / 1000 + " Qi"; }
-  if (num >= 1000000000000000) { return Math.round(num / 1000000000000) / 1000 + " Qa"; }
-  if (num >= 1000000000000) { return Math.round(num / 1000000000) / 1000 + " Tr"; }
-  if (num >= 1000000000) { return Math.round(num / 1000000) / 1000 + " Bi"; }
-  if (num >= 1000000) { return Math.round(num / 1000) / 1000 + " Mi"; }
-  return Math.round(num);
+    if (num < 1000000) { return Math.floor(num); }
+    const len = Math.log(num) * Math.LOG10E + 1 | 0;
+    const index = Math.floor(((len-4)/3)-1);
+    return Number(num.toString().substring(0, 4+((len-1)%3)) / 1000) + " " + nominals[index];
 } 
+
+export function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
 
 var monsters = [
     "pirate", "hawk", "toad", "grizzly bear", "bear",
@@ -144,7 +146,8 @@ var adjectives = [
     "disaffected ", "impatient ", "severe ", "feral ", "wild ", "merciless ",
     "though ", "misleading ", "cackling ", "groundbreaking ", "midnight ", 
     "grinning ", "demon-like ", "draconic ", "shamanistic ", "barbed ", "cyber-",
-    "violent ", "slithering ", "spellcasting ", "runic ", "dramatic ", "rabid "   
+    "violent ", "slithering ", "spellcasting ", "runic ", "dramatic ", "rabid ",
+    "necrotic ", "necro", "rampant "   
 ]
 
 // Generate a random monster name
